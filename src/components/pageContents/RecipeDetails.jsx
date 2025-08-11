@@ -1,14 +1,21 @@
 import ContentCard from "../pageLayout/ContentCard"
 import { Container, Row } from "react-bootstrap"
+import useFav from "../../hooks/useFav"
 
 export default function RecipeDetails({
+    id,
     image,
     title,
     description,
-    onAddtoFaves,
-    onRemoveFromFaves,
-    isFavorite = false
 }) {
+
+    const { favorites, addtoFav, removeFromFav } = useFav()
+
+    const isFavorite = favorites.some((fav) => fav.id === id)
+
+    const handleAddFav = () => addtoFav({ id, image, title, description })
+    const handleRemoveFav = () => removeFromFav(id)
+
     return (
         <Container>
             <Row>
@@ -17,7 +24,7 @@ export default function RecipeDetails({
                     title={title}
                     description={description}
                     btnText={isFavorite ? "Remove" : "Add"}
-                    onBtnClick={isFavorite ? onRemoveFromFaves : onAddtoFaves}
+                    onBtnClick={isFavorite ? handleRemoveFav : handleAddFav}
                 />
             </Row>
         </Container>

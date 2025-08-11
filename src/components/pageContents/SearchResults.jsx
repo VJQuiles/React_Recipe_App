@@ -1,8 +1,9 @@
 import ContentCard from "../pageLayout/ContentCard"
 import { Container, Row, Col } from "react-bootstrap"
+import { useNavigate } from "react-router-dom"
 
-export default function SearchResults() {
-    const searchResults = []
+export default function SearchResults({ searchResults = [] }) {
+    const navigate = useNavigate()
 
     return (
         <Container>
@@ -17,7 +18,7 @@ export default function SearchResults() {
                                 description={result.description}
                                 btnText={"Check it out"}
                                 link={`/recipes/${result.id}`}
-                                onBtnClick={() => console.log(`${result.title}`)}
+                                onBtnClick={() => navigate(`/recipes/${result.id}`)}
                             />
                         </Col>
                     ))

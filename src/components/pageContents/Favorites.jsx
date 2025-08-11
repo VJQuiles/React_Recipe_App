@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import useFav from "../../hooks/useFav"
 
 export default function Favorites() {
-    const { favorites } = useFav
+    const { favorites } = useFav()
 
     if (!favorites || favorites.length === 0) {
         return (
