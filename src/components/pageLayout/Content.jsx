@@ -1,4 +1,3 @@
-import NavigationBar from "./Navbar"
 import { Container, Row, Col } from "react-bootstrap"
 
 export default function ContentContainer() {
