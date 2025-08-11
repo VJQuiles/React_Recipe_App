@@ -16,7 +16,7 @@ export default function SearchBar({ value, onChange, onSearch }) {
                         value={value}
                         onChange={(e) => onChange(e.target.value)}
                     />
-                    <SearchButton onClick={onSearch} />
+                    <SearchButton />
                 </InputGroup>
             </Form>
         </>

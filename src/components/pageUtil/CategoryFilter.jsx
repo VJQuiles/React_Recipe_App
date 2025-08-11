@@ -1,10 +1,12 @@
 import { Form } from "react-bootstrap"
 
-export default function CategoryFilter({ categories = [], onChange }) {
+export default function CategoryFilter({ categories = [], selectedCategory = "", onChange }) {
     return (
         <Form.Group controlId="categoryFilter">
             <Form.Label>Sort By Category</Form.Label>
-            <Form.Select onChange={(e) => onChange(e.target.value)}>
+            <Form.Select
+                value={selectedCategory}
+                onChange={(e) => onChange(e.target.value)}>
                 <option value="">All Categories</option>
                 {categories.map((category) => (
                     <option
