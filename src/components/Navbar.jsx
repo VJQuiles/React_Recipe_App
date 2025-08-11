@@ -22,7 +22,6 @@ export default function NavigationBar() {
                     <Nav.Link as={NavLink} to="/categories">Categories</Nav.Link>
                     <Nav.Link as={NavLink} to="/recipes">Recipes</Nav.Link>
                     <Nav.Link as={NavLink} to="/favorites">Favorites</Nav.Link>
-                    <Nav.Link as={NavLink} to="/search_results"></Nav.Link>
                 </Nav>
             </Container>
         </Navbar>
