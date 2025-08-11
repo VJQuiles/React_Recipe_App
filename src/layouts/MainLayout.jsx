@@ -1,6 +1,6 @@
-import NavigationBar from "../components/Navbar"
+import NavigationBar from "../components/pageLayout/Navbar"
 import { Outlet } from "react-router-dom"
-import ContentContainer from "../components/Content"
+import ContentContainer from "../components/pageLayout/Content"
 
 export default function MainLayout() {
     return (
