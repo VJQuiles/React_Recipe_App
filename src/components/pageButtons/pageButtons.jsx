@@ -35,7 +35,7 @@ export function FavoriteButton({ onClick }) {
 export function RemoveButton({ onClick }) {
     return (
         <>
-            <Button variant="outline-danger" onClick={onClick}>Favorite</Button>
+            <Button variant="outline-danger" onClick={onClick}>Remove</Button>
         </>
     )
 }

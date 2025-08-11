@@ -1,11 +1,11 @@
 import { Container, Row, Col } from "react-bootstrap"
 
-export default function ContentContainer() {
+export default function ContentContainer({ children }) {
     return (
         <>
             <Container>
                 <Row>
-                    <Col>🚧Content Container Under Construction🚧</Col>
+                    <Col>{children}</Col>
                 </Row>
             </Container>
         </>
