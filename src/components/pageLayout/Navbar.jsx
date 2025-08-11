@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 import { Container, Nav, Navbar } from "react-bootstrap"
-import logo from "../assets/favicon-32x32.png"
+import logo from "/src/assets/favicon-32x32.png"
 
 export default function NavigationBar() {
     return (
