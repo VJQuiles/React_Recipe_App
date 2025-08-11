@@ -16,7 +16,6 @@ function App() {
 
   return (
     <>
-      <h1>🚧Under Construction🚧</h1>
       <Routes>
         <Route path='/' element={<MainLayout />}>
           <Route index element={<HomePage />} />

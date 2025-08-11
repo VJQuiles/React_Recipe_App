@@ -1,13 +1,15 @@
 import NavigationBar from "../components/Navbar"
 import { Outlet } from "react-router-dom"
+import ContentContainer from "../components/Content"
 
 export default function MainLayout() {
     return (
         <>
             <NavigationBar />
-            <div>
+            <h1>🚧Page Under Construction🚧</h1>
+            <ContentContainer>
                 <Outlet />
-            </div>
+            </ContentContainer>
         </>
     )
 }
