@@ -1,9 +1,9 @@
 import ContentCard from "../pageLayout/ContentCard"
-import { Row, Col } from "react-bootstrap"
+import { Row, Col, Alert } from "react-bootstrap"
 
 export default function CategoryDetails({ recipes }) {
     if (!recipes) {
-        return <p>If you listen closely, you can hear your tummy grumble. Look up another recipe.</p>
+        return <Alert>If you listen closely, you can hear your tummy grumble. Look up another recipe.</Alert>
     }
 
     return (
@@ -15,6 +15,7 @@ export default function CategoryDetails({ recipes }) {
                             image={recipe.image}
                             title={recipe.title}
                             link={`/recipes/${recipe.id}`}
+                            btnText="View Recipe"
                         />
                     </Col>
                 ))}

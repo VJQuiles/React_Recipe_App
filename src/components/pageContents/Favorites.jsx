@@ -1,9 +1,12 @@
 import ContentCard from "../pageLayout/ContentCard"
 import { Container, Row, Col } from "react-bootstrap"
 import { Link } from "react-router-dom"
+import useFav from "../../hooks/useFav"
 
-export default function Favorites({ favorites }) {
-    if (!favorites) {
+export default function Favorites() {
+    const { favorites } = useFav
+
+    if (!favorites || favorites.length === 0) {
         return (
             <Container>
                 <h3>Hey! Go hit that add button on the pics that look good!</h3>
@@ -16,7 +19,7 @@ export default function Favorites({ favorites }) {
         <Container>
             <h3>Your Faves🥰</h3>
             <Row xs={1} sm={2} md={3} lg={4}>
-                {favorites.map((id, image, title, description) => (
+                {favorites.map(({ id, image, title, description }) => (
                     <Col key={id}>
                         <ContentCard
                             image={image}
