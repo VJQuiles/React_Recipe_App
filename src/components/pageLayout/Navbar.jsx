@@ -20,7 +20,6 @@ export default function NavigationBar() {
                     <Nav.Link as={NavLink} to="/" className="me-4">Home</Nav.Link>
                     <Nav.Link as={NavLink} to="/login">Login</Nav.Link>
                     <Nav.Link as={NavLink} to="/categories">Categories</Nav.Link>
-                    <Nav.Link as={NavLink} to="/recipes">Recipes</Nav.Link>
                     <Nav.Link as={NavLink} to="/favorites">Favorites</Nav.Link>
                 </Nav>
             </Container>

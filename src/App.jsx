@@ -6,7 +6,6 @@ import CategoryDetailPage from './pages/CategoryDetail'
 import FavoritesPage from './pages/Favorites'
 import HomePage from './pages/Home'
 import LoginPage from './pages/Login'
-import RecipePage from './pages/Recipe'
 import RecipeDetail from './pages/RecipeDetail'
 import SearchResultPage from './pages/SearchResult'
 
@@ -24,7 +23,6 @@ function App() {
           <Route path='categories' element={<CategoryPage />} />
           <Route path='categories/:slug' element={<CategoryDetailPage />} />
           <Route path='recipes/:slug' element={<RecipeDetail />} />
-          {/* <Route path='recipes' element={<RecipeDetail />} /> */}
           <Route path='search-results' element={<SearchResultPage />} />
         </Route>
       </Routes>

@@ -31,6 +31,7 @@ export default function CategoryPage() {
                             <ContentCard
                                 image={meal.strMealThumb}
                                 title={meal.strMeal}
+                                btnText="Check it Out"
                                 link={`/recipes/${meal.idMeal}`}
                             />
                         </Col>

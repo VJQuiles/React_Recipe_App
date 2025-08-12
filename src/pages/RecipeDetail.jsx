@@ -1,14 +1,17 @@
 import { Container, Row, Col } from "react-bootstrap"
 import ContentCard from "/src/components/pageLayout/ContentCard.jsx"
+import { mealDetails } from "../libs/fakeData"
+import { useParams } from "react-router-dom"
 
-export default function RecipeDetails({
-    recipe,
-    isFavorite = false,
-    onAddToFav,
-    onRemoveFromFav
-}) {
-    if (!recipe) {
-        return <p>The secret to goodness incoming...</p>
+
+export default function RecipeDetails() {
+
+    const { slug } = useParams()
+
+    const selectedRecipe = mealDetails[slug]
+
+    if (!selectedRecipe) {
+        return <p>Are you tired of looking at this yet?</p>
     }
 
     return (
@@ -16,11 +19,11 @@ export default function RecipeDetails({
             <Row>
                 <Col md={6}>
                     <ContentCard
-                        image={recipe.strMealThumb}
-                        title={recipe.strMeal}
-                        description={recipe.strInstructions}
-                        btnText={isFavorite ? "Remove from Favorites" : "Add to Favorites"}
-                        onBtnClick={isFavorite ? onRemoveFromFav : onAddToFav}
+                        image={selectedRecipe.strMealThumb}
+                        title={selectedRecipe.strMeal}
+                        description={selectedRecipe.strInstructions}
+                        btnText={"Fave Five"}
+                        onBtnClick={() => console.log("Test test")}
                     />
                 </Col>
             </Row>
