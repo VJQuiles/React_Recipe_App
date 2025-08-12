@@ -16,15 +16,15 @@ const FavProvider = ({ children }) => {
 
     const addToFav = (favItem) => {
         setFavorites((prev) => {
-            if (prev.find((item) => item.id === favItem.id)) {
+            if (prev.find((item) => item.idMeal === favItem.idMeal)) {
                 return prev
             }
             return [...prev, favItem]
         })
     }
 
-    const removeFromFav = (id) => {
-        setFavorites((prev) => prev.filter((fav) => fav.id !== id))
+    const removeFromFav = (idMeal) => {
+        setFavorites((prev) => prev.filter((fav) => fav.idMeal !== idMeal))
     }
 
     return (
