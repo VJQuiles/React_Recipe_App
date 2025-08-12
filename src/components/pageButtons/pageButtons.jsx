@@ -1,21 +1,5 @@
 import { Button } from "react-bootstrap"
 
-export function LoginButton({ onClick }) {
-    return (
-        <>
-            <Button variant="outline-primary" onClick={onClick}>Login</Button>
-        </>
-    )
-}
-
-export function LogoutButton({ onClick }) {
-    return (
-        <>
-            <Button variant="outline-primary" onClick={onClick}>Logout</Button>
-        </>
-    )
-}
-
 export function SearchButton({ onClick }) {
     return (
         <>
