@@ -2,13 +2,18 @@ import useFetch from "../hooks/useFetch"
 import ContentCard from "../components/pageLayout/ContentCard"
 import { Container, Row, Col } from "react-bootstrap"
 import Spinners from "/src/components/pageUtil/Spinners.jsx"
+import { useNavigate } from "react-router-dom"
 
 
 export default function HomePage() {
 
-    const url = "https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata"
+    const navigate = useNavigate()
+
+    const url = "https://www.themealdb.com/api/json/v1/1/search.php?s="
 
     const { data, loading, error } = useFetch(url)
+
+    const meals = data?.meals || []
 
     if (loading) {
         return (
@@ -16,13 +21,11 @@ export default function HomePage() {
         )
     }
 
-    if (error) {
-        return (
-            <Alert variant="danger">Error: {error.message}</Alert>
-        )
+    if (error || meals === 0) {
+        navigate("/not-found")
+        return null
     }
 
-    const meals = data?.meals || []
 
     return (
         <>
