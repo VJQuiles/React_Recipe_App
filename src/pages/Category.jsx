@@ -3,7 +3,7 @@ import CategoryFilter from "/src/components/pageUtil/CategoryFilter.jsx"
 import { Container, Row, Col, Alert } from "react-bootstrap"
 import ContentCard from "/src/components/pageLayout/ContentCard.jsx"
 import useFetch from "../hooks/useFetch"
-import Spinner from "/src/components/pageUtil/Spinners.jsx"
+import Spinners from "/src/components/pageUtil/Spinners.jsx"
 
 
 export default function CategoryPage() {
@@ -15,7 +15,7 @@ export default function CategoryPage() {
 
     if (loading) {
         return (
-            <Spinner animation="border" role="status" />
+            <Spinners animation="border" role="status" />
         )
     }
 

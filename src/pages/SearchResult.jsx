@@ -1,6 +1,6 @@
 import useQuery from "../hooks/useQuery"
 import SearchResults from "../components/pageContents/SearchResults"
-import { mealsByCategory } from "/src/libs/fakeData.js"
+
 
 
 export default function SearchReultsPage() {

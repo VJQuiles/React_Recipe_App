@@ -1,17 +1,34 @@
 import { Container, Row, Col } from "react-bootstrap"
 import ContentCard from "/src/components/pageLayout/ContentCard.jsx"
-import { mealDetails } from "../libs/fakeData"
 import { useParams } from "react-router-dom"
 import useFav from "/src/hooks/useFav"
+import useFetch from "../hooks/useFetch"
+import Spinners from "/src/components/pageUtil/Spinners.jsx"
 
 
 export default function RecipeDetails() {
 
     const { slug } = useParams()
 
-    const selectedRecipe = mealDetails[slug]
+    const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${slug}`
+
+    const { data, loading, error } = useFetch(url)
 
     const { favorites, addToFav, removeFromFav } = useFav()
+
+    if (loading) {
+        return (
+            <Spinners animation="border" role="status" />
+        )
+    }
+
+    if (error) {
+        return (
+            <Alert variant="danger">Error: {error.message}</Alert>
+        )
+    }
+
+    const selectedRecipe = Array.isArray(data?.meals) ? data.meals[0] : null
 
     const isFav = favorites.some((fav) => fav.idMeal === slug)
 
@@ -27,7 +44,7 @@ export default function RecipeDetails() {
     }
 
     if (!selectedRecipe) {
-        return <p>Are you tired of looking at this yet?</p>
+        return <p>Are you tired of looking at this yet? {slug}</p>
     }
 
     return (

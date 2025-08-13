@@ -1,7 +1,7 @@
 import useFetch from "../hooks/useFetch"
 import ContentCard from "../components/pageLayout/ContentCard"
 import { Container, Row, Col } from "react-bootstrap"
-import Spinner from "/src/components/pageUtil/Spinners.jsx"
+import Spinners from "/src/components/pageUtil/Spinners.jsx"
 
 
 export default function HomePage() {
@@ -12,7 +12,7 @@ export default function HomePage() {
 
     if (loading) {
         return (
-            <Spinner animation="border" role="status" />
+            <Spinners animation="border" role="status" />
         )
     }
 
