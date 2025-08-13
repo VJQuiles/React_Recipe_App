@@ -1,18 +1,21 @@
 import FavContext from "../contexts/FavContext"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const FavProvider = ({ children }) => {
-    const [currentUser, setCurrentUser] = useState(null)
-    const [favorites, setFavorites] = useState([])
 
-    const login = (user) => {
-        setCurrentUser(user)
-    }
+    const [favorites, setFavorites] = useState(() => {
+        try {
+            const stored = localStorage.getItem("favorites")
+            return stored ? JSON.parse(stored) : []
+        } catch {
+            return []
+        }
+    })
 
-    const logout = () => {
-        setCurrentUser(null)
-        setFavorites([])
-    }
+    useEffect(() => {
+        localStorage.setItem("favorites", JSON.stringify(favorites))
+    }, [favorites])
+
 
     const addToFav = (favItem) => {
         setFavorites((prev) => {
@@ -30,10 +33,7 @@ const FavProvider = ({ children }) => {
     return (
         <FavContext.Provider
             value={{
-                currentUser,
                 favorites,
-                login,
-                logout,
                 addToFav,
                 removeFromFav
             }}>

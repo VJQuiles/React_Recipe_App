@@ -15,6 +15,7 @@ export default function HomePage() {
 
     const meals = data?.meals || []
 
+
     if (loading) {
         return (
             <Spinners animation="border" role="status" />
