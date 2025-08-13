@@ -1,20 +1,42 @@
 import { useState } from "react"
 import CategoryFilter from "/src/components/pageUtil/CategoryFilter.jsx"
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col, Alert } from "react-bootstrap"
 import ContentCard from "/src/components/pageLayout/ContentCard.jsx"
-import { mealsByCategory, categories } from "../libs/fakeData"
+import useFetch from "../hooks/useFetch"
+import Spinner from "/src/components/pageUtil/Spinners.jsx"
 
 
 export default function CategoryPage() {
     const [selectedCategory, setSelectedCategory] = useState("")
 
+    const url = "https://www.themealdb.com/api/json/v1/1/list.php?c=list"
+
+    const { data, loading, error } = useFetch(url)
+
+    if (loading) {
+        return (
+            <Spinner animation="border" role="status" />
+        )
+    }
+
+    if (error) {
+        return (
+            <Alert variant="danger">Error: {error.message}</Alert>
+        )
+    }
+
+    const meals = data?.meals || []
+
 
     const filteredMeals = selectedCategory
-        ? mealsByCategory[selectedCategory] || []
-        : Object.values(mealsByCategory).flat()
+        ? meals[selectedCategory] || []
+        : Object.values(meals).flat()
 
 
-    const categoryNames = categories.map(cat => cat.strCategory)
+    const categoryNames = meals.map(cat => cat.strCategory)
+
+    console.log(filteredMeals.map(m => m.idMeal))
+    console.log()
 
     return (
         <Container>

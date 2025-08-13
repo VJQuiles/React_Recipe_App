@@ -6,7 +6,7 @@ import Spinner from "/src/components/pageUtil/Spinners.jsx"
 
 export default function HomePage() {
 
-    const url = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood"
+    const url = "https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata"
 
     const { data, loading, error } = useFetch(url)
 
